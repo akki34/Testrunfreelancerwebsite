@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aakash Bisht — Freelance Content Writer</title>
+  <link rel="shortcut icon" href="/Image/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Caveat:wght@500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #fff9f4;
+      --ink: #1a1208;
+      --charcoal: #2d2416;
+      --rust: #c4531a;
+      --rust-light: #e8703a;
+      --sage: #7a8c6e;
+      --gold: #c9a84c;
+      --blush: #f0d9cc;
+      --paper: #f5efe6;
+      --border: #d9cebf;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+    /* TOPBAR */
+    .topbar { background: var(--ink); color: var(--cream); text-align: center; padding: 10px 20px; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; }
+    .topbar a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 16px 60px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--ink); letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--rust); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-cta { background: var(--rust); color: white !important; padding: 9px 22px; border-radius: 2px; font-size: 12px !important; letter-spacing: 0.12em !important; }
+    .nav-cta:hover { background: var(--rust-light) !important; }
+
+    /* HERO */
+    .hero { background: var(--warm-white); min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 80px 60px; gap: 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(196,83,26,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-eyebrow { font-family: 'Caveat', cursive; font-size: 22px; color: var(--rust); margin-bottom: 16px; display: block; transform: rotate(-1deg); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(46px, 5.5vw, 76px); font-weight: 900; line-height: 1.06; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 28px; animation: fadeUp 0.7s ease both; }
+    .hero h1 em { font-style: italic; color: var(--rust); }
+    .hero-sub { font-size: 18px; line-height: 1.7; color: #5a4e3c; max-width: 480px; margin-bottom: 40px; animation: fadeUp 0.7s 0.15s ease both; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+
+    .btn-primary { background: var(--rust); color: white; padding: 15px 32px; font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--rust-light); transform: translateY(-1px); }
+    .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); padding: 14px 30px; font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; display: inline-block; }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+    .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-card { background: var(--paper); border: 1px solid var(--border); padding: 48px 44px; border-radius: 4px; width: 100%; max-width: 440px; position: relative; box-shadow: 6px 6px 0 var(--blush); }
+    .hero-card-tag { font-family: 'Caveat', cursive; font-size: 18px; color: var(--rust); margin-bottom: 8px; }
+    .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 14px; line-height: 1.3; }
+    .hero-card p { font-size: 14px; line-height: 1.7; color: #6b5d4a; margin-bottom: 24px; }
+    .paperclip-deco { position: absolute; font-size: 28px; top: -14px; right: 30px; transform: rotate(20deg); color: var(--rust); opacity: 0.7; }
+    .email-form { display: flex; border: 1.5px solid var(--border); border-radius: 2px; overflow: hidden; }
+    .email-form input { flex: 1; padding: 12px 16px; font-size: 14px; font-family: 'DM Sans', sans-serif; border: none; background: white; outline: none; color: var(--ink); }
+    .email-form button { background: var(--ink); color: var(--cream); border: none; padding: 12px 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s; }
+    .email-form button:hover { background: var(--rust); }
+
+    /* PRESS */
+    .press { background: var(--ink); padding: 36px 60px; }
+    .press-label { text-align: center; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #9e8e76; margin-bottom: 24px; }
+    .press-logos { display: flex; align-items: center; justify-content: center; gap: 52px; flex-wrap: wrap; }
+    .press-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #6b5d4a; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; cursor: default; }
+    .press-logo:hover { color: var(--gold); }
+    .press-logo.serif { font-style: italic; font-size: 18px; }
+
+    /* ABOUT */
+    .about { padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: var(--cream); }
+    .about-img-wrap { position: relative; }
+    .about-img-bg { position: absolute; inset: 20px -20px -20px 20px; background: var(--blush); border-radius: 4px; z-index: 0; }
+    .about-img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #e8d5c4 0%, #d4b99a 50%, #c9a07a 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .about-img-placeholder { font-family: 'Playfair Display', serif; font-size: 90px; font-weight: 900; color: rgba(255,255,255,0.4); letter-spacing: -0.05em; }
+    .about-scribble { position: absolute; bottom: -30px; left: -20px; z-index: 2; background: var(--ink); color: var(--cream); padding: 12px 20px; font-family: 'Caveat', cursive; font-size: 17px; transform: rotate(-2deg); border-radius: 2px; }
+    .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; display: block; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(34px, 3.5vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 28px; }
+    .section-title em { font-style: italic; color: var(--rust); }
+    .about-text p { font-size: 16px; line-height: 1.8; color: #5a4e3c; margin-bottom: 18px; }
+    .client-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .chip { background: var(--paper); border: 1px solid var(--border); padding: 6px 14px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--charcoal); border-radius: 100px; }
+
+    /* SERVICES */
+    .services { background: var(--paper); padding: 120px 60px; }
+    .services-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+    .service-card { background: var(--warm-white); border: 1px solid var(--border); padding: 44px 36px; border-radius: 4px; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,18,8,0.08); }
+    .service-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--blush); line-height: 1; margin-bottom: 20px; }
+    .service-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 14px; line-height: 1.3; }
+    .service-card p { font-size: 14px; line-height: 1.75; color: #6b5d4a; }
+    .service-dot { position: absolute; top: 28px; right: 28px; width: 8px; height: 8px; background: var(--rust); border-radius: 50%; }
+
+    /* HOW */
+    .how { padding: 120px 60px; background: var(--cream); }
+    .how-header { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 28px; left: 12%; right: 12%; height: 1px; background: var(--border); z-index: 0; }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-circle { width: 56px; height: 56px; background: var(--warm-white); border: 2px solid var(--rust); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--rust); }
+    .step h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 14px; line-height: 1.7; color: #6b5d4a; }
+
+    /* PATHS */
+    .paths { background: var(--ink); padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .path-card { background: #241c0f; padding: 72px 56px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .path-card:last-child { background: #2d2416; }
+    .path-card:hover { background: #312610; }
+    .path-card::before { content: ''; position: absolute; bottom: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(196,83,26,0.15) 0%, transparent 70%); pointer-events: none; }
+    .path-eyebrow { font-family: 'Caveat', cursive; font-size: 20px; color: var(--gold); margin-bottom: 16px; display: block; }
+    .path-card h3 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--cream); margin-bottom: 20px; line-height: 1.2; }
+    .path-card p { font-size: 15px; line-height: 1.75; color: #a89070; margin-bottom: 32px; }
+    .btn-light { border: 1.5px solid var(--gold); color: var(--gold); padding: 13px 28px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: all 0.2s; }
+    .btn-light:hover { background: var(--gold); color: var(--ink); }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 120px 60px; background: var(--paper); }
+    .testimonials-header { text-align: center; max-width: 500px; margin: 0 auto 72px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+    .testimonial-card { background: var(--warm-white); border: 1px solid var(--border); padding: 40px 32px; border-radius: 4px; }
+    .quote-mark { font-family: 'Playfair Display', serif; font-size: 80px; line-height: 0.5; color: var(--blush); margin-bottom: 20px; display: block; }
+    .testimonial-card blockquote { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; line-height: 1.7; color: var(--charcoal); margin-bottom: 24px; }
+    .testimonial-author { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; color: var(--rust); }
+    .testimonial-role { font-size: 12px; color: #9e8e76; margin-top: 3px; }
+
+    /* NEWSLETTER */
+    .newsletter { background: var(--rust); padding: 100px 60px; text-align: center; position: relative; overflow: hidden; }
+    .newsletter::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,0,0,0.1) 0%, transparent 50%); }
+    .newsletter > * { position: relative; z-index: 1; }
+    .newsletter .section-eyebrow { color: rgba(255,255,255,0.7); }
+    .newsletter h2 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 52px); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 20px; }
+    .newsletter p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 40px; line-height: 1.7; }
+    .newsletter-form { display: flex; max-width: 460px; margin: 0 auto; border-radius: 2px; overflow: hidden; border: 2px solid rgba(255,255,255,0.3); }
+    .newsletter-form input { flex: 1; padding: 16px 20px; font-size: 15px; font-family: 'DM Sans', sans-serif; border: none; background: rgba(255,255,255,0.15); color: white; outline: none; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+    .newsletter-form button { background: var(--ink); color: var(--cream); border: none; padding: 16px 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .newsletter-form button:hover { background: #2d2416; }
+
+    /* BLOG */
+    .blog { padding: 120px 60px; background: var(--cream); }
+    .blog-header { display: flex; align-items: flex-end; justify-content: space-between; max-width: 1100px; margin: 0 auto 60px; }
+    .blog-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 28px; max-width: 1100px; margin: 0 auto; }
+    .blog-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform 0.2s; }
+    .blog-card:hover { transform: translateY(-3px); }
+    .blog-img { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--blush) 0%, #e0c8b5 100%); display: flex; align-items: center; justify-content: center; }
+    .blog-img-large { aspect-ratio: 16/8; }
+    .blog-img-icon { font-size: 36px; opacity: 0.5; }
+    .blog-body { padding: 28px; }
+    .blog-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); margin-bottom: 10px; display: block; }
+    .blog-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 12px; color: var(--ink); }
+    .blog-card.featured h3 { font-size: 26px; }
+    .blog-card p { font-size: 14px; line-height: 1.7; color: #7a6a56; margin-bottom: 20px; }
+    .read-more { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--rust); padding-bottom: 2px; transition: opacity 0.2s; }
+    .read-more:hover { opacity: 0.7; }
+
+    /* DIVIDER */
+    .divider { text-align: center; padding: 24px; font-family: 'Caveat', cursive; font-size: 20px; color: var(--rust); opacity: 0.5; letter-spacing: 0.2em; }
+
+    /* FOOTER */
+    footer { background: var(--ink); padding: 80px 60px 40px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .nav-logo { font-size: 26px; display: block; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; color: #6b5d4a; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 12px; }
+    .social-link { width: 36px; height: 36px; border: 1px solid #3d3020; border-radius: 2px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; color: #6b5d4a; transition: all 0.2s; }
+    .social-link:hover { border-color: var(--rust); color: var(--rust); }
+    .footer-col h4 { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 14px; color: #6b5d4a; text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom { border-top: 1px solid #2d2416; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 12px; color: #4a3d2c; }
+    .footer-bottom a { color: var(--rust); text-decoration: none; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hero, .about, .paths { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .press, .services, .how, .testimonials, .blog, .newsletter { padding: 80px 24px; }
+      .services-grid, .testimonials-grid, .steps { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      footer { padding: 60px 24px 30px; }
+      .paths { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    ✏️ &nbsp; 10% Discount for Early Customers — <a href="#contact">Limited spots available »</a>
+  </div>
+
+  <nav>
+    <!-- <a href="#" class="nav-logo">Aakash <span>Bisht</span></a> -->
+     <img src="/Image/unnamed.jpg" alt="Aakash Bisht" class="nav-logo" style="width: 140px; height: 100px;">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">hey there, I'm Aakash 👋</span>
+      <h1>Words that <em>work</em> as hard as you do.</h1>
+      <p class="hero-sub">What mostly a website need to stand out? A SEO friendly content that tells about it. With our content writing services, you will easily score a top rank in <em style="color: #c4531a;">Google SERP page</em> .</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">See What I Can Do</a>
+        <a href="#portfolio" class="btn-outline">View Portfolio</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="paperclip-deco">📎</div>
+        <div class="hero-card-tag">free samples ↓</div>
+        <h3>Check My Sample First, Then Hire</h3>
+        <p>Drop your email and I'll send you the work sample instantly — we believe in quality work.</p>
+        <div class="email-form">
+          <input type="email" placeholder="your@email.com" />
+          <button>Send it →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="press">
+    <p class="press-label">You may also follow me on</p>
+    <div class="press-logos">
+      <span class="press-logo serif">Instagram</span>
+      <span class="press-logo">Twitter</span>
+      <span class="press-logo serif">Insights</span>
+      <span class="press-logo">Linkedin</span>
+      <span class="press-logo serif">Facebook.</span>
+      <span class="press-logo">Upwork</span>
+      <span class="press-logo">X</span>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-img-wrap">
+      <div class="about-img-bg"></div>
+      <div class="about-img">
+        <img class="about-img-placeholder">AM</img>
+      </div>
+      <div class="about-scribble">2+ years writing ✍️</div>
+    </div>
+    <div class="about-text">
+      <span class="section-eyebrow">Let's Know Me More!</span>
+      <h2 class="section-title">A Pre-eminent Freelancer At Your <em>Service.</em></h2>
+      <p>A kind greeting from me. Hey everyone, am Aakash, a top-tier content writer who have 3 years of experience in this field. Before becoming a content writer, I was just a mere human. But then, I got to know about my skills. As you know, I have been working in this field for 3 years and knows everyhting about content writer. In this period, I learn how to write a top-notch content without any help of AI.</p>
+      <p> I have been working with various clients from different industries since I started my career as a full-time content writer. Some of my best projects are from Medical, E-commerce, Tour & travels, etc. Whoever took me for their content ended with calling me a wizard <em>*dusts shoulder off*</em></p>
+      <p> Now, you don't have to worry about who will write your content. When you have Aakash, you don't need anything else. From website content to blog post, everyhting will done in a professional manner.</p>
+      <div class="client-chips">
+        <a href="mailto:akkibisht0425@gmail.com?subject=I Need Enquiry">
+  <button class="btn-primary">Contact Me</button>
+</a>
+    
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <section class="services" id="services">
+    <div class="services-header">
+      <span class="section-eyebrow">what I do</span>
+      <h2 class="section-title">Content that <em>connects</em> with the right readers.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">01</div><h3>Long-Form Blog Posts</h3><p>In-depth, SEO-optimized articles (1,500–3,500 words) that rank on Google and keep readers engaged from first line to CTA.</p></div>
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">02</div><h3>Ebooks & Lead Magnets</h3><p>Comprehensive downloadable resources that build trust, capture leads, and position your brand as the go-to authority in your niche.</p></div>
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">03</div><h3>Content Strategy</h3><p>Not just writing — a full editorial roadmap. Keyword research, topic clusters, content calendars, and the strategy to tie it all together.</p></div>
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">04</div><h3>Email Newsletters</h3><p>Weekly or monthly newsletters that your subscribers actually open. Written in a voice that sounds human, not like a press release.</p></div>
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">05</div><h3>Case Studies</h3><p>Compelling customer success stories that tell a real narrative, highlight measurable results, and help close deals for your sales team.</p></div>
+      <div class="service-card"><div class="service-dot"></div><div class="service-num">06</div><h3>Website Copy</h3><p>Homepage, about page, service pages — copy that's clear, conversion-focused, and tells your brand story in a way that sticks.</p></div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-header">
+      <span class="section-eyebrow">my process</span>
+      <h2 class="section-title">Simple, stress-free, <em>and</em> effective.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-circle">1</div><h4>Discovery Call</h4><p>We chat for 30 minutes about your brand, goals, audience, and content needs. No pressure, just a conversation.</p></div>
+      <div class="step"><div class="step-circle">2</div><h4>Custom Proposal</h4><p>I send over a tailored proposal with scope, timeline, and pricing within 48 hours of our call.</p></div>
+      <div class="step"><div class="step-circle">3</div><h4>Research & Draft</h4><p>I do the deep research, write the first draft, and refine it until it's genuinely great — then send it over.</p></div>
+      <div class="step"><div class="step-circle">4</div><h4>Revise & Deliver</h4><p>You give feedback, I revise (two rounds included), and deliver the final, publish-ready content. Done.</p></div>
+    </div>
+  </section>
+
+  <section class="paths">
+    <div class="path-card">
+      <span class="path-eyebrow">just starting out?</span>
+      <h3>I'm brand new to freelancing »</h3>
+      <p>I've been exactly where you are. Let me help you land your first clients, set your rates, and build the foundation for a sustainable freelance business.</p>
+      <a href="#blog" class="btn-light">Start Here →</a>
+    </div>
+    <div class="path-card">
+      <span class="path-eyebrow">ready to level up?</span>
+      <h3>I'm an established freelancer »</h3>
+      <p>You've got the basics down — now let's talk scale. From raising your rates to niching down, I've got the strategies that actually work.</p>
+      <a href="#blog" class="btn-light">Level Up →</a>
+    </div>
+  </section>
+
+  <section class="testimonials" id="portfolio">
+    <div class="testimonials-header">
+      <span class="section-eyebrow">don't take my word for it</span>
+      <h2 class="section-title">What clients <em>actually</em> say.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><span class="quote-mark">"</span><blockquote>Alex has an incredible talent for making complex topics feel accessible and genuinely interesting. Our blog traffic doubled in six months. We won't hire anyone else.</blockquote><div class="testimonial-author">Sarah K.</div><div class="testimonial-role">Head of Content, Loom</div></div>
+      <div class="testimonial-card"><span class="quote-mark">"</span><blockquote>Every piece Alex delivers is thoroughly researched, beautifully written, and arrives on time. She just gets our voice — we barely need to edit anything.</blockquote><div class="testimonial-author">Marcus T.</div><div class="testimonial-role">Marketing Director, Hubstaff</div></div>
+      <div class="testimonial-card"><span class="quote-mark">"</span><blockquote>The ebook Alex wrote for us became our highest-performing lead magnet ever. Over 4,000 downloads in the first month. The ROI speaks for itself.</blockquote><div class="testimonial-author">Priya N.</div><div class="testimonial-role">VP of Marketing, Culture Amp</div></div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <span class="section-eyebrow">weekly freelance fuel</span>
+    <h2>Get freelance advice &amp; job leads<br>directly to your inbox.</h2>
+    <p>Every week: one tactical tip, one resource, and a roundup of real freelance writing opportunities. No fluff. No spam. Unsubscribe any time.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address..." />
+      <button>Yes, I'm In!</button>
+    </div>
+  </section>
+
+  <section class="blog" id="blog">
+    <div class="blog-header">
+      <div>
+        <span class="section-eyebrow">on the blog</span>
+        <h2 class="section-title" style="margin-bottom:0">The latest <em>posts.</em></h2>
+      </div>
+      <a href="#" class="btn-outline">Read All Posts →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card featured">
+        <div class="blog-img blog-img-large"><span class="blog-img-icon">✍️</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Freelance Tips</span>
+          <h3>How to Raise Your Freelance Rates Without Losing Clients (A Real Conversation Guide)</h3>
+          <p>Raising your rates is terrifying. Here's the exact script I use — and how to have that conversation without your stomach dropping.</p>
+          <a href="#" class="read-more">Read More »</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img"><span class="blog-img-icon">📄</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Getting Started</span>
+          <h3>9 Places to Find Freelance Writing Clients Right Now</h3>
+          <p>My go-to list — updated for 2025.</p>
+          <a href="#" class="read-more">Read More »</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img"><span class="blog-img-icon">💸</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Money & Rates</span>
+          <h3>What I Actually Earn as a Full-Time Freelance Writer</h3>
+          <p>Real numbers. Real talk. No filters.</p>
+          <a href="#" class="read-more">Read More »</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Alex <span style="color:var(--rust)">Monroe</span></a>
+        <p>Freelance content writer helping B2B SaaS brands grow through long-form content that ranks, converts, and actually gets read.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">ig</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Blog Posts</a></li>
+          <li><a href="#">Ebooks</a></li>
+          <li><a href="#">Content Strategy</a></li>
+          <li><a href="#">Newsletters</a></li>
+          <li><a href="#">Case Studies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">For New Freelancers</a></li>
+          <li><a href="#">For Established Freelancers</a></li>
+          <li><a href="#">The Blog</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Free Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">hello@alexmonroe.com</a></li>
+          <li><a href="#">Book a Discovery Call</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">About Alex</a></li>
+          <li><a href="#">Press & Mentions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Alex Monroe. All rights reserved. Made with ☕ and a lot of words.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
